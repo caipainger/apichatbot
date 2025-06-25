@@ -1,11 +1,12 @@
 using System;
 using System.Threading.Tasks;
-using PdfPig; // Add this using statement
+using UglyToad.PdfPig; // Add this using statement
 using System.Linq; // Add this using statement
 
 using OpenAI.GPT3.Managers; // Add this using statement
 using OpenAI.GPT3.Model; // Add this using statement
-using OpenAI.GPT3.ObjectModels.RequestModels; // Add this using statement
+using OpenAI.GPT3.ObjectModels.RequestModels;
+using BBtaChatbotJackApi.Context; // Add this using statement
 
 namespace BBtaChatbotJackApi.Services
 {

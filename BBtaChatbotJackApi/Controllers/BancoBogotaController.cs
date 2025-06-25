@@ -1,6 +1,8 @@
 using Microsoft.AspNetCore.Mvc;
 using BBtaChatbotJackApi.Services; // Add this using statement
-using System.Threading.Tasks; // Add this using statement
+using System.Threading.Tasks;
+using BBtaChatbotJackApi.Context;
+using BBtaChatbotJackApi.Models; // Add this using statement
 
 namespace BBtaChatbotJackApi.Controllers
 {
@@ -44,116 +46,55 @@ namespace BBtaChatbotJackApi.Controllers
             return Ok(new { topic = topic });
         }
 
-    // Inside BBtaChatbotJackApi/Controllers/BancoBogotaController.cs
-    [HttpPost("ask")]
-    public async Task<IActionResult> Ask([FromBody] ChatRequest request)
-    {
-        // Get or create chat session (implement this method)
-        var chatSessionId = await GetOrCreateChatSessionId(request.SessionId); // Modify to await
-
-        // Retrieve file information from the database
-        var fileInfo = await _context.FileInfos.FindAsync(request.FileId);
-        if (fileInfo == null)
+        [HttpPost("askQuestion")]
+        public async Task<IActionResult> AskQuetion([FromBody] ChatRequest request)
         {
-            return NotFound(new { error = "File not found." });
-        }
+            // Get or create chat session (implement this method)
+            var chatSessionId = await GetOrCreateChatSessionId(request.SessionId); // Modify to await
 
-        var fileText = _chatbotFunctions.ReadFile(fileInfo.FilePath, fileInfo.FileType); // Call ReadFile
-
-        if (fileText.StartsWith("Error:"))
-        {
-            // Update file status to error in the database if needed
-            return BadRequest(new { error = fileText });
-        }
-
-        var topic = await _chatbotFunctions.GetTopicFromQuestion(chatSessionId, fileText, request.Question); // Pass chatSessionId
-
-        return Ok(new { topic = topic, sessionId = chatSessionId }); // Return session ID
-    }
-    // Inside BBtaChatbotJackApi/Controllers/BancoBogotaController.cs
-    [HttpPost("ask")]
-    public async Task<IActionResult> Ask([FromBody] ChatRequest request)
-    {
-        // Get or create chat session (implement this method)
-        var chatSessionId = await GetOrCreateChatSessionId(request.SessionId); // Modify to await
-
-        // Retrieve file information from the database
-        var fileInfo = await _context.FileInfos.FindAsync(request.FileId);
-        if (fileInfo == null)
-        {
-            return NotFound(new { error = "File not found." });
-        }
-
-        var fileText = _chatbotFunctions.ReadFile(fileInfo.FilePath, fileInfo.FileType); // Call ReadFile
-
-        if (fileText.StartsWith("Error:"))
-        {
-            // Update file status to error in the database if needed
-            return BadRequest(new { error = fileText });
-        }
-
-        var topic = await _chatbotFunctions.GetTopicFromQuestion(chatSessionId, fileText, request.Question); // Pass chatSessionId
-
-        return Ok(new { topic = topic, sessionId = chatSessionId }); // Return session ID
-    }
-
-    // Example method to get or create a session ID (needs AppDbContext injection)
-    private async Task<int> GetOrCreateChatSessionId(int? sessionId)
-    {
-        if (sessionId.HasValue)
-        {
-            // In a real app, check if this session ID exists in the DB
-            // If it exists, return it; otherwise, create a new one and return its ID
-            var existingSession = await _context.ChatSessions.FindAsync(sessionId.Value);
-            if (existingSession != null)
+            // Retrieve file information from the database
+            var fileInfo = await _context.FileInfos.FindAsync(request.FileId);
+            if (fileInfo == null)
             {
-                return existingSession.Id;
+                return NotFound(new { error = "File not found." });
             }
-        }
 
-        // Create a new chat session in the database
-        var newSession = new ChatSession { StartTime = DateTime.UtcNow };
-        _context.ChatSessions.Add(newSession);
-        await _context.SaveChangesAsync(); // Save to get the new session's ID
-        return newSession.Id;
-    }
+            var fileText = _chatbotFunctions.ReadFile(fileInfo.FilePath, fileInfo.FileType); // Call ReadFile
 
-
-    // Example method to get or create a session ID (needs AppDbContext injection)
-    private async Task<int> GetOrCreateChatSessionId(int? sessionId)
-    {
-        if (sessionId.HasValue)
-        {
-            // In a real app, check if this session ID exists in the DB
-            // If it exists, return it; otherwise, create a new one and return its ID
-            var existingSession = await _context.ChatSessions.FindAsync(sessionId.Value);
-            if (existingSession != null)
+            if (fileText.StartsWith("Error:"))
             {
-                return existingSession.Id;
+                // Update file status to error in the database if needed
+                return BadRequest(new { error = fileText });
             }
+
+            var topic = await _chatbotFunctions.GetTopicFromQuestion(chatSessionId, fileText, request.Question); // Pass chatSessionId
+
+            return Ok(new { topic = topic, sessionId = chatSessionId }); // Return session ID
         }
 
-        // Create a new chat session in the database
-        var newSession = new ChatSession { StartTime = DateTime.UtcNow };
-        _context.ChatSessions.Add(newSession);
-        await _context.SaveChangesAsync(); // Save to get the new session's ID
-        return newSession.Id;
-    }
+        // Example method to get or create a session ID (needs AppDbContext injection)
+        private async Task<int> GetOrCreateChatSessionId(int? sessionId)
+        {
+            if (sessionId.HasValue)
+            {
+                // In a real app, check if this session ID exists in the DB
+                // If it exists, return it; otherwise, create a new one and return its ID
+                var existingSession = await _context.ChatSessions.FindAsync(sessionId.Value);
+                if (existingSession != null)
+                {
+                    return existingSession.Id;
+                }
+            }
+
+            // Create a new chat session in the database
+            var newSession = new ChatSession { StartTime = DateTime.UtcNow };
+            _context.ChatSessions.Add(newSession);
+            await _context.SaveChangesAsync(); // Save to get the new session's ID
+            return newSession.Id;
+        }
+
 
     }
+
+      
 }
-
-    // Define a simple class to represent the chatbot request payload
-    public class ChatRequest
-    {
-        public string PdfFilePath { get; set; }
-        public string Question { get; set; }
-    }
-
-    // Inside BBtaChatbotJackApi/Controllers/BancoBogotaController.cs
-    public class ChatRequest
-    {
-        public int FileId { get; set; } // Change this property
-        public string Question { get; set; }
-        public int? SessionId { get; set; } // Add this property
-    }

@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.35706.149
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BBtaChatbotJackApi", "BBtaChatbotJackApi\BBtaChatbotJackApi.csproj", "{740B52AF-AED3-440C-8B03-7DA53805694A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{740B52AF-AED3-440C-8B03-7DA53805694A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{740B52AF-AED3-440C-8B03-7DA53805694A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{740B52AF-AED3-440C-8B03-7DA53805694A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{740B52AF-AED3-440C-8B03-7DA53805694A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7739C484-9946-482A-9BF9-A45CD20F8FAA}
+	EndGlobalSection
+EndGlobal
