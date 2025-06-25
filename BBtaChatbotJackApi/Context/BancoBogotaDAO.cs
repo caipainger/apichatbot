@@ -1,4 +1,22 @@
-csharp
+namespace BBtaChatbotJackApi.Context
+{
+    public class BancoBogotaDAO
+    {
+        private readonly AppDbContext _context;
+
+        public BancoBogotaDAO(AppDbContext context)
+        {
+            _context = context;
+        }
+
+        public async Task<string> ReadPdf(string filePath)
+        {
+            if (!System.IO.File.Exists(filePath))
+            {
+                return "Error: File not found.";
+            }
+
+        }
     public string ReadPdf(string filePath)
     {
         if (!System.IO.File.Exists(filePath))
@@ -32,3 +50,5 @@ csharp
             return $"Error reading PDF: {ex.Message}";
         }
     }
+    }
+}

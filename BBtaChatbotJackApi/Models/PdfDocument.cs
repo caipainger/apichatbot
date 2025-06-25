@@ -1,4 +1,4 @@
-csharp
+
 using System;
 
 namespace BBtaChatbotJackApi.Models
@@ -11,7 +11,6 @@ namespace BBtaChatbotJackApi.Models
         public DateTime UploadDate { get; set; }
         public string Status { get; set; } // e.g., "Processed", "Pending", "Error"
     }
-    csharp
     // Inside BBtaChatbotJackApi/Models/FileInfo.cs (after renaming)
     public class FileInfo // Renamed from PdfDocument
     {

@@ -1,4 +1,4 @@
-csharp
+
 using System;
 
 namespace BBtaChatbotJackApi.Models

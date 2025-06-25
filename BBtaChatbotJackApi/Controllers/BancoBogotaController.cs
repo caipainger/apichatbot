@@ -44,7 +44,6 @@ namespace BBtaChatbotJackApi.Controllers
             return Ok(new { topic = topic });
         }
 
-        csharp
     // Inside BBtaChatbotJackApi/Controllers/BancoBogotaController.cs
     [HttpPost("ask")]
     public async Task<IActionResult> Ask([FromBody] ChatRequest request)
@@ -71,8 +70,6 @@ namespace BBtaChatbotJackApi.Controllers
 
         return Ok(new { topic = topic, sessionId = chatSessionId }); // Return session ID
     }
-
-    csharp
     // Inside BBtaChatbotJackApi/Controllers/BancoBogotaController.cs
     [HttpPost("ask")]
     public async Task<IActionResult> Ask([FromBody] ChatRequest request)

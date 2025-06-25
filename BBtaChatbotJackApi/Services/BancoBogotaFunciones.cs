@@ -91,7 +91,6 @@ namespace BBtaChatbotJackApi.Services
                 return $"Error calling OpenAI API: {ex.Message}";
             }
         }
-        csharp
     // Inside BBtaChatbotJackApi/Services/BancoBogotaFunciones.cs
     // Rename this method from ReadPdf
     public string ReadFile(string filePath, string fileType) // Update signature
@@ -128,7 +127,6 @@ namespace BBtaChatbotJackApi.Services
             return $"Error reading file: {ex.Message}";
         }
     }
-    csharp
     // Inside BBtaChatbotJackApi/Services/BancoBogotaFunciones.cs
     public async Task<string> GetTopicFromQuestion(int chatSessionId, string pdfText, string userQuestion) // Update signature
     {

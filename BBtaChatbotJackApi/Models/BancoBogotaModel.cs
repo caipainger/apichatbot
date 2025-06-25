@@ -4,7 +4,6 @@ namespace BBtaChatbotJackApi.Models
     {
         // Add properties here
     }
-    csharp
     // Inside BBtaChatbotJackApi/Models/FileInfo.cs (after renaming)
     public class FileInfo // Renamed from PdfDocument
     {
