@@ -13,15 +13,14 @@ namespace BBtaChatbotJackApi.Context
         public DbSet<PdfDocument> PdfDocuments { get; set; }
         public DbSet<ChatSession> ChatSessions { get; set; }
         public DbSet<Message> Messages { get; set; }
+        public object FileInfos { get; internal set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            // Configure relationships or other model settings here
-            // For example, if you want to define foreign key relationships
-            // modelBuilder.Entity<Message>()
-            //     .HasOne(m => m.ChatSession)
-            //     .WithMany(cs => cs.Messages)
-            //     .HasForeignKey(m => m.ChatSessionId);
+            modelBuilder.Entity<Message>()
+                .HasOne(m => m.ChatSession)
+                .WithMany(cs => cs.Messages)
+                .HasForeignKey(m => m.ChatSessionId);
         }
     }
 }

@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore; // Add this using statement
 using BBtaChatbotJackApi.Context; // Add this using statement
-using Microsoft.Extensions.Configuration; // Add this using statement
+using Microsoft.Extensions.Configuration;
+using BBtaChatbotJackApi.Services; // Add this using statement
 
 var builder = WebApplication.CreateBuilder(args);
 

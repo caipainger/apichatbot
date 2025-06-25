@@ -1,0 +1,7 @@
+C:\DesarrolloApis\Bots\gitApiChatBot\BBtaChatbotJackApi\obj\Debug\net8.0\BBtaChatbotJackApi.csproj.AssemblyReference.cache
+C:\DesarrolloApis\Bots\gitApiChatBot\BBtaChatbotJackApi\obj\Debug\net8.0\BBtaChatbotJackApi.GeneratedMSBuildEditorConfig.editorconfig
+C:\DesarrolloApis\Bots\gitApiChatBot\BBtaChatbotJackApi\obj\Debug\net8.0\BBtaChatbotJackApi.AssemblyInfoInputs.cache
+C:\DesarrolloApis\Bots\gitApiChatBot\BBtaChatbotJackApi\obj\Debug\net8.0\BBtaChatbotJackApi.AssemblyInfo.cs
+C:\DesarrolloApis\Bots\gitApiChatBot\BBtaChatbotJackApi\obj\Debug\net8.0\BBtaChatbotJackApi.csproj.CoreCompileInputs.cache
+C:\DesarrolloApis\Bots\gitApiChatBot\BBtaChatbotJackApi\obj\Debug\net8.0\BBtaChatbotJackApi.MvcApplicationPartsAssemblyInfo.cache
+C:\DesarrolloApis\Bots\gitApiChatBot\BBtaChatbotJackApi\obj\Debug\net8.0\BBtaChatbotJackApi.sourcelink.json

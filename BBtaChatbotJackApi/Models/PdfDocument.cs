@@ -9,20 +9,20 @@ namespace BBtaChatbotJackApi.Models
         public string FileName { get; set; }
         public string FilePath { get; set; }
         public DateTime UploadDate { get; set; }
-        public string Status { get; set; } // e.g., "Processed", "Pending", "Error"
+        public string Status { get; set; } 
     }
-    // Inside BBtaChatbotJackApi/Models/FileInfo.cs (after renaming)
-    public class FileInfo // Renamed from PdfDocument
+    
+
+    public class FileInfo
     {
         public int Id { get; set; }
-        public string FileName { get; set; }
-        public string FilePath { get; set; }
-        public string FileType { get; set; } // Add this property
-        public long FileSize { get; set; } // Add this property
+        public string FileName { get; set; } = "";
+        public string FilePath { get; set; } = "";
+        public string FileType { get; set; } = "";
+        public long FileSize { get; set; }
         public DateTime UploadDate { get; set; }
-        public string Status { get; set; }
+        public string Status { get; set; } 
 
-        // ... other properties if any
     }
 
 }
