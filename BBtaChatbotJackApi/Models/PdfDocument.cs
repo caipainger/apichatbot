@@ -3,7 +3,7 @@ using System;
 
 namespace BBtaChatbotJackApi.Models
 {
-    public class PdfDocument
+    public class PdfDocuments
     {
         public int Id { get; set; }
         public string FileName { get; set; }
@@ -13,7 +13,7 @@ namespace BBtaChatbotJackApi.Models
     }
     
 
-    public class FileInfo
+    public class FileInfos
     {
         public int Id { get; set; }
         public string FileName { get; set; } = "";

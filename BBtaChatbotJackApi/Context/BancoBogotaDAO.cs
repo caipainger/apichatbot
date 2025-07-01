@@ -26,7 +26,7 @@ namespace BBtaChatbotJackApi.Context
                     var text = string.Join(" ", document.GetPages().Select(page => page.Text));
 
                     // Save PDF information to the database
-                    var pdfDocument = new Models.PdfDocument
+                    var pdfDocument = new Models.PdfDocuments
                     {
                         FileName = System.IO.Path.GetFileName(filePath),
                         FilePath = filePath,

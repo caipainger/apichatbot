@@ -31,6 +31,8 @@ namespace BBtaChatbotJackApi.Controllers
         {
             // You would typically handle file uploads and get the file path here
             // For demonstration purposes, we'll assume a file path is provided in the request
+            var chatSessionId = await GetOrCreateChatSessionId(request.SessionId); // Modify to await
+
             var pdfFilePath = request.PdfFilePath;
             var userQuestion = request.Question;
 
@@ -41,7 +43,7 @@ namespace BBtaChatbotJackApi.Controllers
                 return BadRequest(new { error = pdfText });
             }
 
-            var topic = await _chatbotFunctions.GetTopicFromQuestion(pdfText, userQuestion);
+            var topic = await _chatbotFunctions.GetTopicFromQuestion(chatSessionId, pdfText, userQuestion);
 
             return Ok(new { topic = topic });
         }

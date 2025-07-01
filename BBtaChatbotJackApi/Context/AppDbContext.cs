@@ -10,10 +10,10 @@ namespace BBtaChatbotJackApi.Context
         {
         }
 
-        public DbSet<PdfDocument> PdfDocuments { get; set; }
+        public DbSet<PdfDocuments> PdfDocuments { get; set; }
         public DbSet<ChatSession> ChatSessions { get; set; }
         public DbSet<Message> Messages { get; set; }
-        public object FileInfos { get; internal set; }
+        public DbSet<FileInfos> FileInfos { get; internal set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
