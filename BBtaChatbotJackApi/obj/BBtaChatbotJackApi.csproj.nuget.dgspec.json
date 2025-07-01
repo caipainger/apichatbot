@@ -55,13 +55,13 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "Betalgo.Ranul.OpenAI": {
+              "target": "Package",
+              "version": "[9.0.4, )"
+            },
             "Newtonsoft.Json": {
               "target": "Package",
               "version": "[13.0.3, )"
-            },
-            "OpenAI": {
-              "target": "Package",
-              "version": "[1.8.0, )"
             },
             "PdfPig": {
               "target": "Package",

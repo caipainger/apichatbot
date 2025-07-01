@@ -1,86 +1,85 @@
 using System;
 using System.Threading.Tasks;
-using UglyToad.PdfPig; // Add this using statement
-using System.Linq; // Add this using statement
-
-using OpenAI.GPT3.Managers; // Add this using statement
-using OpenAI.GPT3.Model; // Add this using statement
-using OpenAI.GPT3.ObjectModels.RequestModels;
-using BBtaChatbotJackApi.Context; // Add this using statement
+using UglyToad.PdfPig;
+using System.Linq;
+using Betalgo.Ranul.OpenAI; // Paquete actualizado
+using Betalgo.Ranul.OpenAI.ObjectModels.RealtimeModels;
+using Betalgo.Ranul.OpenAI.ObjectModels.RequestModels;
+using BBtaChatbotJackApi.Context;
+using Betalgo.Ranul.OpenAI.Managers;
+using Betalgo.Ranul.OpenAI.ObjectModels.SharedModels;
+using BBtaChatbotJackApi.Models;
 
 namespace BBtaChatbotJackApi.Services
 {
     public class BancoBogotaFunciones
     {
         private readonly OpenAIService _openAIService;
+        private readonly AppDbContext _context;
 
-    private readonly AppDbContext _context;
-
-       
-    public BancoBogotaFunciones(AppDbContext context)
-    {
-        _context = context;
-        // Initialize OpenAI service (get API key from configuration)
-        var apiKey = "YOUR_OPENAI_API_KEY"; // Replace with your actual API key from configuration
-        _openAIService = new OpenAIService(new OpenAI.GPT3.OpenAiOptions()
+        public BancoBogotaFunciones(AppDbContext context)
         {
-            ApiKey = apiKey
-        });
-    }
-
-      
-
-        // Add methods for PDF reading and AI interaction here
-
-    public string ReadPdf(string filePath)
-    {
-        if (!System.IO.File.Exists(filePath))
-        {
-            return "Error: File not found.";
+            _context = context;
+            // Initialize OpenAI service with the new package
+            var apiKey = "YOUR_OPENAI_API_KEY"; // Reemplaza con tu API key real
+            _openAIService = new OpenAIService(new OpenAIOptions()
+            {
+                ApiKey = apiKey,
+                DefaultModelId = "gpt-3.5-turbo" //Model.Gpt_3_5_Turbo // Modelo por defecto actualizado
+            });
         }
 
-        try
+        public string ReadPdf(string filePath)
         {
-            using (var document = PdfDocument.Open(filePath))
+            if (!System.IO.File.Exists(filePath))
             {
-                var text = string.Join(" ", document.GetPages().Select(page => page.Text));
+                return "Error: File not found.";
+            }
 
-                // Save PDF information to the database
-                var pdfDocument = new Models.PdfDocument
+            try
+            {
+                using (var document = PdfDocument.Open(filePath))
                 {
-                    FileName = System.IO.Path.GetFileName(filePath),
-                    FilePath = filePath,
-                    UploadDate = DateTime.UtcNow,
-                    Status = "Processed"
-                };
-                _context.PdfDocuments.Add(pdfDocument);
-                _context.SaveChanges(); // Save changes to the database
+                    var text = string.Join(" ", document.GetPages().Select(page => page.Text));
 
-                return text;
+                    // Save PDF information to the database
+                    var pdfDocument = new PdfDocuments
+                    {
+                        FileName = System.IO.Path.GetFileName(filePath),
+                        FilePath = filePath,
+                        UploadDate = DateTime.UtcNow,
+                        Status = "Processed"
+                    };
+                    _context.PdfDocuments.Add(pdfDocument);
+                    _context.SaveChanges();
+
+                    return text;
+                }
+            }
+            catch (Exception ex)
+            {
+                return $"Error reading PDF: {ex.Message}";
             }
         }
-        catch (Exception ex)
-        {
-            // In a real application, you might want to log the error and handle it appropriately
-            return $"Error reading PDF: {ex.Message}";
-        }
-    }
 
-
-        public async Task<string> GetTopicFromQuestion(string pdfText, string userQuestion)
+        public async Task<string> GetTopicFromQuestion(int? idchat, string pdfText,  string userQuestion)
         {
             try
             {
-                var completionResult = await _openAIService.Completions.CreateCompletionAsync(new CompletionCreateRequest()
+                var completionResult = await _openAIService.ChatCompletion.CreateCompletion(new ChatCompletionCreateRequest
                 {
-                    Prompt = $"Based on the following text, what is the main topic of the question?\n\nText: {pdfText}\n\nQuestion: {userQuestion}\n\nTopic:",
-                    Model = Models.TextDavinciV3, // Or another suitable model
-                    MaxTokens = 50 // Adjust as needed
+                    Messages = new List<ChatMessage>
+                    {
+                        ChatMessage.FromSystem("You are a helpful assistant that identifies topics in text."),
+                        ChatMessage.FromUser($"Based on the following text, what is the main topic of the question?\n\nText: {pdfText}\n\nQuestion: {userQuestion}")
+                    },
+                    Model = "gpt-3.5-turbo", // Modelo actualizado
+                    MaxTokens = 50
                 });
 
                 if (completionResult.Successful)
                 {
-                    return completionResult.Choices.FirstOrDefault()?.Text.Trim();
+                    return completionResult.Choices.FirstOrDefault()?.Message.Content?.Trim();
                 }
                 else
                 {
@@ -88,101 +87,101 @@ namespace BBtaChatbotJackApi.Services
                 }
             }
             catch (Exception ex)
-            {                  
+            {
                 return $"Error calling OpenAI API: {ex.Message}";
             }
         }
-    // Inside BBtaChatbotJackApi/Services/BancoBogotaFunciones.cs
-    // Rename this method from ReadPdf
-    public string ReadFile(string filePath, string fileType) // Update signature
-    {
-        if (!System.IO.File.Exists(filePath))
+
+        public string ReadFile(string filePath, string fileType)
         {
-            return "Error: File not found.";
+            if (!System.IO.File.Exists(filePath))
+            {
+                return "Error: File not found.";
+            }
+
+            try
+            {
+                switch (fileType.ToLower())
+                {
+                    case "pdf":
+                        using (var document = PdfDocument.Open(filePath))
+                        {
+                            return string.Join(" ", document.GetPages().Select(page => page.Text));
+                        }
+                    case "docx":
+                        return "DOCX reading not implemented yet.";
+                    case "txt":
+                        return System.IO.File.ReadAllText(filePath);
+                    default:
+                        return $"Error: File type '{fileType}' not supported.";
+                }
+            }
+            catch (Exception ex)
+            {
+                return $"Error reading file: {ex.Message}";
+            }
         }
 
-        try
+        public async Task<string> GetTopicFromQuestions(int chatSessionId, string pdfText, string userQuestion)
         {
-            switch (fileType.ToLower()) // Add switch statement
+            try
             {
-                case "pdf":
-                    // Use PdfPig to read PDF
-                    using (var document = PdfDocument.Open(filePath))
+                var chatSession = await _context.ChatSessions.FindAsync(chatSessionId);
+                if (chatSession == null)
+                {
+                    return "Error: Chat session not found.";
+                }
+
+                var completionResult = await _openAIService.ChatCompletion.CreateCompletion(new ChatCompletionCreateRequest
+                {
+                    Messages = new List<ChatMessage>
                     {
-                        return string.Join(" ", document.GetPages().Select(page => page.Text));
-                    }
-                case "docx":
-                    // Add DOCX reading logic (using a library like DocX)
-                    return "DOCX reading not implemented yet."; // Placeholder
-                case "txt":
-                    // Read plain text file
-                    return System.IO.File.ReadAllText(filePath);
-                // Add cases for other file types (doc, xml, xlsx, csv) and their reading logic
-                default:
-                    return $"Error: File type '{fileType}' not supported.";
-            }
-        }
-        catch (Exception ex)
-        {
-            // Log the error
-            return $"Error reading file: {ex.Message}";
-        }
-    }
-    // Inside BBtaChatbotJackApi/Services/BancoBogotaFunciones.cs
-    public async Task<string> GetTopicFromQuestion(int chatSessionId, string pdfText, string userQuestion) // Update signature
-    {
-        try
-        {
-            // Retrieve the chat session
-            var chatSession = await _context.ChatSessions.FindAsync(chatSessionId);
-            if (chatSession == null)
-            {
-                return "Error: Chat session not found.";
-            }
+                        ChatMessage.FromSystem("You are a helpful assistant that identifies topics in text."),
+                        ChatMessage.FromUser($"Based on the following text, what is the main topic of the question?\n\nText: {pdfText}\n\nQuestion: {userQuestion}")
+                    },
+                    Model = "gpt-3.5-turbo",
+                    MaxTokens = 50
+                });
 
-            // ... (rest of your existing code to call OpenAI API)
-
-            if (completionResult.Successful)
-            {
-                var identifiedTopic = completionResult.Choices.FirstOrDefault()?.Text.Trim();
-
-                // Save user message
-                var userMessage = new Message
+                if (completionResult.Successful)
                 {
-                    ChatSessionId = chatSessionId,
-                    Sender = "User",
-                    Content = userQuestion,
-                    Timestamp = DateTime.UtcNow,
-                    IdentifiedTopic = null
-                };
-                _context.Messages.Add(userMessage);
+                    var identifiedTopic = completionResult.Choices.FirstOrDefault()?.Message.Content?.Trim();
 
-                // Save AI response message
-                var aiMessage = new Message
+                    // Save user message
+                    var userMessage = new Message
+                    {
+                        ChatSessionId = chatSessionId,
+                        Sender = "User",
+                        Content = userQuestion,
+                        Timestamp = DateTime.UtcNow,
+                        IdentifiedTopic = null
+                    };
+                    _context.Messages.Add(userMessage);
+
+                    // Save AI response message
+                    var aiMessage = new Message
+                    {
+                        ChatSessionId = chatSessionId,
+                        Sender = "AI",
+                        Content = identifiedTopic,
+                        Timestamp = DateTime.UtcNow,
+                        IdentifiedTopic = identifiedTopic
+                    };
+                    _context.Messages.Add(aiMessage);
+
+                    await _context.SaveChangesAsync();
+
+                    return identifiedTopic;
+                }
+                else
                 {
-                    ChatSessionId = chatSessionId,
-                    Sender = "AI",
-                    Content = identifiedTopic,
-                    Timestamp = DateTime.UtcNow,
-                    IdentifiedTopic = identifiedTopic
-                };
-                _context.Messages.Add(aiMessage);
-
-                await _context.SaveChangesAsync(); // Save both messages
-
-                return identifiedTopic;
+                    return $"Error from OpenAI API: {completionResult.Error?.Message}";
+                }
             }
-            else
+            catch (Exception ex)
             {
-                // ... (error handling)
+                return $"Error calling OpenAI API: {ex.Message}";
             }
         }
-        catch (Exception ex)
-        {
-            // ... (error handling)
-        }
-    }
-
-
     }
 }
