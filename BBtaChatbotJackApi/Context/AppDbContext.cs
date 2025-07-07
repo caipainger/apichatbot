@@ -14,6 +14,8 @@ namespace BBtaChatbotJackApi.Context
         public DbSet<ChatSession> ChatSessions { get; set; }
         public DbSet<Message> Messages { get; set; }
         public DbSet<FileInfos> FileInfos { get; internal set; }
+        
+        public DbSet<FileInfo> FileInform { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
