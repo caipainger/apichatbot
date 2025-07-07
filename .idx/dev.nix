@@ -11,6 +11,9 @@
     # pkgs.nodejs_20
     # pkgs.nodePackages.nodemon
     pkgs.dotnet-sdk_8
+    pkgs.Betalgo.Ranul.OpenAI
+    pkgs.NPOI
+    pkgs.PdfPig
   ];
   # Sets environment variables in the workspace
   env = {};
@@ -18,6 +21,8 @@
     # Search for the extensions you want on https://open-vsx.org/ and use "publisher.id"
     extensions = [
       # "vscodevim.vim"
+      "ms-dotnettools.vscode-dotnet-runtime"
+      "muhammad-sammy.csharp"
     ];
     # Enable previews
     previews = {
