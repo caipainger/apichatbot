@@ -12,11 +12,13 @@ namespace BBtaChatbotJackApi.Controllers
     {
         private readonly BancoBogotaFunciones _chatbotFunctions;
         private readonly AppDbContext _context; // Add this line
+private readonly FileProcessorService _fileProcessorService;
 
-        public BancoBogotaController(BancoBogotaFunciones chatbotFunctions, AppDbContext context) // Modify constructor
+        public BancoBogotaController(BancoBogotaFunciones chatbotFunctions, AppDbContext context, FileProcessorService fileProcessorService) // Modify constructor
         {
             _chatbotFunctions = chatbotFunctions;
             _context = context; // Assign injected context
+            _fileProcessorService = fileProcessorService; // Assign injected service
         }
 
 
@@ -95,7 +97,24 @@ namespace BBtaChatbotJackApi.Controllers
             return newSession.Id;
         }
 
+        [HttpGet("Process")]
+        public async Task<IActionResult> Process()
+        {
+            var results = await _fileProcessorService.ProcessUploadFolderAsync();
 
+            if (results.Any(r => r.StartsWith("Error:")))
+            {
+                return BadRequest(results); // Devuelve BadRequest si hubo errores
+            }
+            else if (results.Any(r => r.StartsWith("Warning:")))
+            {
+                return Ok(results); // Devuelve Ok con advertencias
+            }
+            else
+            {
+                return Ok(results); // Devuelve Ok si todo fue exitoso o no hubo archivos
+            }
+        }
     }
 
       
