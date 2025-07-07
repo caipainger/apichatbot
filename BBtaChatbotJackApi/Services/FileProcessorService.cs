@@ -13,112 +13,185 @@ namespace BBtaChatbotJackApi.Services
 {
     public class FileProcessorService
     {
-     
-     
-    public FileProcessorService(AppDbContext context, IConfiguration configuration)
+     private readonly AppDbContext _context;
+private readonly IConfiguration _configuration;
+private readonly EmbeddingService _embeddingService;
+
+    public FileProcessorService(AppDbContext context, IConfiguration configuration, EmbeddingService embeddingService)
     {
         _context = context;
         _configuration = configuration;
+    _embeddingService = embeddingService;
     }
 
-    public async Task<List<string>> ProcessUploadFolderAsync()
+   public async Task<List<string>> ProcessUploadFolderAsync()
+{
+    var results = new List<string>();
+    var uploadFolderPath = _configuration["UPLOAD_FOLDER"];
+
+    if (string.IsNullOrEmpty(uploadFolderPath))
     {
-        var results = new List<string>();
-        var uploadFolderPath = _configuration[\"UPLOAD_FOLDER\"];
-
-        if (string.IsNullOrEmpty(uploadFolderPath))
-        {
-            results.Add(\"Error: UPLOAD_FOLDER configuration is missing.\");
-            return results;
-        }
-
-        if (!Directory.Exists(uploadFolderPath))
-        {
-            results.Add($\"Error: Upload folder not found at {uploadFolderPath}\");
-            return results;
-        }
-
-        var files = Directory.GetFiles(uploadFolderPath);
-
-        if (files.Length == 0)
-        {
-            results.Add(\"No files found in the upload folder.\");
-            return results;
-        }
-
-        foreach (var filePath in files)
-        {
-            var result = await ProcessFileAsync(filePath);
-            results.Add($\"Processing \\\"{Path.GetFileName(filePath)}\\\": {result}\");
-        }
-
+        results.Add("Error: UPLOAD_FOLDER configuration is missing.");
         return results;
     }
 
-        public async Task<string> ProcessFileAsync(string filePath)
+    if (!Directory.Exists(uploadFolderPath))
+    {
+        results.Add($"Error: Upload folder not found at {uploadFolderPath}");
+        return results;
+    }
+
+    var files = Directory.GetFiles(uploadFolderPath);
+
+    if (files.Length == 0)
+    {
+        results.Add("No files found in the upload folder.");
+        return results;
+    }
+
+    foreach (var filePath in files)
+    {
+        var result = await ProcessFileAsync(filePath);
+        results.Add(result); // Add the result message for each file
+    }
+
+    return results;
+}
+
+       public async Task<string> ProcessFileAsync(string filePath)
+{
+    if (string.IsNullOrEmpty(filePath))
+    {
+        return "Error: File path is null or empty.";
+    }
+
+    string extension = Path.GetExtension(filePath).ToLowerInvariant();
+    string text = string.Empty;
+
+    switch (extension)
+    {
+        case ".txt":
+            text = await ProcessPlainAsync(filePath);
+            break;
+        case ".xls":
+        case ".xlsx":
+            text = await ProcessExcelAsync(filePath);
+            break;
+        case ".csv":
+            text = await ProcessCsvAsync(filePath);
+            break;
+        case ".doc":
+        case ".docx":
+            // Implement Word processing or handle as unsupported
+            text = "Error: Word document processing not fully implemented."; // Placeholder
+            break;
+        case ".pdf":
+            text = await ProcessPdfAsync(filePath);
+            break;
+        default:
+            return "Error: Unsupported file format.";
+    }
+
+    // Verificar si hubo un error en el procesamiento específico
+    if (text.StartsWith("Error:"))
+    {
+        return text;
+    }
+
+    // Simple text chunking (split by paragraphs or a fixed size)
+    // This is a basic example; you might need a more sophisticated chunking strategy
+    var textChunks = SplitTextIntoChunks(text, 1000); // Example: Split into chunks of ~1000 characters
+
+    if (textChunks.Count == 0)
+    {
+        return "Warning: No processable text found in the file.";
+    }
+
+    try
+    {
+        var fileProcessingResults = new List<string>();
+
+        foreach (var chunk in textChunks)
         {
-            if (string.IsNullOrEmpty(filePath))
+            // Generate embedding for the chunk
+            float[] embedding = await _embeddingService.GenerateEmbeddingAsync(chunk);
+
+            // Create a new FileInfo object for the chunk
+            var fileInfoChunk = new Models.FileInfo // Use Models.FileInfo to avoid ambiguity
             {
-                return "Error: File path is null or empty.";
+                FileName = Path.GetFileName(filePath),
+                FilePath = filePath, // Or OriginalFilePath if you renamed it
+                TextChunk = chunk,
+                Embedding = embedding,
+                UploadDate = DateTime.UtcNow,
+                FileType = extension
+            };
+
+            // Add the chunk info to the database context
+            _context.FileInfos.Add(fileInfoChunk);
+            fileProcessingResults.Add($"Processed chunk from {Path.GetFileName(filePath)}");
+        }
+
+        // Save all chunk info for this file to the database
+        await _context.SaveChangesAsync();
+
+        return $"Successfully processed {textChunks.Count} chunks from file: {Path.GetFileName(filePath)}";
+    }
+    catch (Exception ex)
+    {
+        return $"Error processing or saving chunks for {Path.GetFileName(filePath)}: {ex.Message}";
+    }
+}
+
+// Add a simple text chunking method (you can refine this)
+private List<string> SplitTextIntoChunks(string text, int maxChunkSize)
+{
+    var chunks = new List<string>();
+    if (string.IsNullOrEmpty(text))
+    {
+        return chunks;
+    }
+
+    // Simple split by paragraphs (adjust delimiters as needed)
+    var paragraphs = text.Split(new[] { "\\r\\n\\r\\n", "\\n\\n" }, StringSplitOptions.RemoveEmptyEntries);
+
+    var currentChunk = new StringBuilder();
+    foreach (var paragraph in paragraphs)
+    {
+        if (currentChunk.Length + paragraph.Length + Environment.NewLine.Length > maxChunkSize)
+        {
+            if (currentChunk.Length > 0)
+            {
+                chunks.Add(currentChunk.ToString());
+                currentChunk.Clear();
             }
-
-            string extension = Path.GetExtension(filePath).ToLowerInvariant();
-            string text = string.Empty;
-            string errorMessage = string.Empty;
-
-            switch (extension)
+            // If a single paragraph is larger than maxChunkSize, you might need to split it further
+            // For simplicity here, we just add the large paragraph as a single chunk
+            if (paragraph.Length > maxChunkSize)
             {
-                case ".txt":
-                    text = await ProcessPlainAsync(filePath);
-                    break;
-                case ".xls":
-                case ".xlsx":
-                    text = await ProcessExcelAsync(filePath);
-                    break;
-                case ".csv":
-                    text = await ProcessCsvAsync(filePath);
-                    break;
-                case ".doc":
-                case ".docx":
-                    text = await ProcessWordAsync(filePath);
-                    break;
-                case ".pdf":
-                    text = await ProcessPdfAsync(filePath);
-                    break;
-                default:
-                    return "Error: Unsupported file format."; // Formato no soportado, salir temprano
+                 chunks.Add(paragraph);
             }
-
-            // Verificar si hubo un error en el procesamiento específico
-            if (text.StartsWith("Error:"))
+            else
             {
-                return text; // Devolver el error del procesamiento específico
-            }
-
-            try
-            {
-                // Crear un objeto FileInfo con los datos extraídos
-                var fileInfo = new FileInfo
-                {
-                    FileName = Path.GetFileName(filePath),
-                    FilePath = filePath, // Opcional, guarda la ruta si es relevante
-                    Content = text,
-                    UploadDate = DateTime.UtcNow, // O usa DateTime.Now si prefieres la hora local
-                    FileType = extension // Guarda la extensión del archivo
-                };
-
-                // Guardar en la base de datos
-                _context.FileInfos.Add(fileInfo);
-                await _context.SaveChangesAsync(); // Usa SaveChangesAsync para no bloquear el hilo
-
-                return "File processed and information saved successfully."; // O puedes devolver el texto procesado si lo necesitas
-            }
-            catch (Exception ex)
-            {
-                // Manejar errores al guardar en la base de datos
-                return $"Error saving file information to database: {ex.Message}";
+               currentChunk.Append(paragraph + Environment.NewLine);
             }
         }
+        else
+        {
+            currentChunk.Append(paragraph + Environment.NewLine);
+        }
+    }
+
+    if (currentChunk.Length > 0)
+    {
+        chunks.Add(currentChunk.ToString());
+    }
+
+    return chunks;
+}
+
+
+
         public async Task<string> ProcessPdfAsync(string filePath)
         {
             if (!System.IO.File.Exists(filePath))

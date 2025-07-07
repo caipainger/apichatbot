@@ -16,18 +16,23 @@ namespace BBtaChatbotJackApi.Services
     {
         private readonly OpenAIService _openAIService;
         private readonly AppDbContext _context;
+    private readonly EmbeddingService _embeddingService; // Add this
+    private readonly BancoBogotaDAO _bancoBogotaDAO; // Add this
 
-        public BancoBogotaFunciones(AppDbContext context)
+        public BancoBogotaFunciones(AppDbContext context, EmbeddingService embeddingService, BancoBogotaDAO bancoBogotaDAO) // Modify this
+    {
+        _context = context;
+        _embeddingService = embeddingService; // Add this
+        _bancoBogotaDAO = bancoBogotaDAO; // Add this
+
+        // Initialize OpenAI service with the new package
+        var apiKey = "YOUR_OPENAI_API_KEY"; // Reemplaza con tu API key real
+        _openAIService = new OpenAIService(new OpenAIOptions()
         {
-            _context = context;
-            // Initialize OpenAI service with the new package
-            var apiKey = "YOUR_OPENAI_API_KEY"; // Reemplaza con tu API key real
-            _openAIService = new OpenAIService(new OpenAIOptions()
-            {
-                ApiKey = apiKey,
-                DefaultModelId = "gpt-3.5-turbo" //Model.Gpt_3_5_Turbo // Modelo por defecto actualizado
-            });
-        }
+            ApiKey = apiKey,
+            DefaultModelId = "gpt-3.5-turbo" //Model.Gpt_3_5_Turbo // Modelo por defecto actualizado
+        });
+    }
 
         public string ReadPdf(string filePath)
         {
@@ -183,5 +188,65 @@ namespace BBtaChatbotJackApi.Services
                 return $"Error calling OpenAI API: {ex.Message}";
             }
         }
+        public async Task<string> GetAnswerWithContextAsync(string userQuestion)
+    {
+        try
+        {
+            // 1. Generate embedding for the user question
+            float[] questionEmbedding = await _embeddingService.GenerateEmbeddingAsync(userQuestion);
+
+            // 2. Search for relevant file chunks based on the question embedding
+            List<BBtaChatbotJackApi.Models.FileInfo> relevantChunks = await _bancoBogotaDAO.SearchRelevantFileChunksAsync(questionEmbedding);
+
+            // 3. Build context string from relevant chunks
+            var contextBuilder = new StringBuilder();
+            contextBuilder.AppendLine("Context from documents:");
+            contextBuilder.AppendLine("--------------------");
+
+            if (relevantChunks != null && relevantChunks.Any())
+            {
+                foreach (var chunk in relevantChunks)
+                {
+                    contextBuilder.AppendLine($"Source: {chunk.FileName}"); // Or use FilePath if more specific
+                    contextBuilder.AppendLine(chunk.TextChunk);
+                    contextBuilder.AppendLine("--------------------");
+                }
+            }
+            else
+            {
+                contextBuilder.AppendLine("No relevant context found in documents.");
+                contextBuilder.AppendLine("--------------------");
+            }
+
+            // 4. Prepare messages for the OpenAI API
+            var messages = new List<ChatMessage>
+            {
+                ChatMessage.FromSystem("You are a helpful assistant that answers questions based on the provided context. If the answer is not in the context, say that you don't have enough information."),
+                ChatMessage.FromUser($"{contextBuilder.ToString()}\n\nQuestion: {userQuestion}")
+            };
+
+            // 5. Call the OpenAI API with context
+            var completionResult = await _openAIService.ChatCompletion.CreateCompletion(new ChatCompletionCreateRequest
+            {
+                Messages = messages,
+                Model = "gpt-3.5-turbo", // Or a more capable model if needed
+                MaxTokens = 500 // Adjust max tokens as needed for a complete answer
+            });
+
+            // 6. Return the answer
+            if (completionResult.Successful)
+            {
+                return completionResult.Choices.FirstOrDefault()?.Message.Content?.Trim();
+            }
+            else
+            {
+                return $"Error from OpenAI API: {completionResult.Error?.Message}";
+            }
+        }
+        catch (Exception ex)
+        {
+            return $"Error in getting answer with context: {ex.Message}";
+        }
+    }
     }
 }

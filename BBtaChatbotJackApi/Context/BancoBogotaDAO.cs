@@ -45,5 +45,13 @@ namespace BBtaChatbotJackApi.Context
                 return $"Error reading PDF: {ex.Message}";
             }
         }
+        public async Task<List<BBtaChatbotJackApi.Models.FileInfoModel>> SearchRelevantFileChunksAsync(float[] queryEmbedding)
+{
+    var relevantChunks = await _context.FileInfos
+        .Take(5) // Take top N relevant chunks
+        .ToListAsync(); // You'll need to order by similarity before taking
+
+    return relevantChunks;
+}
     }
 }
