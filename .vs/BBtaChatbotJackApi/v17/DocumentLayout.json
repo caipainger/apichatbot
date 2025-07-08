@@ -1,0 +1,313 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\DesarrolloApis\\Bots\\gitApiChatBot\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{740B52AF-AED3-440C-8B03-7DA53805694A}|BBtaChatbotJackApi\\BBtaChatbotJackApi.csproj|c:\\desarrolloapis\\bots\\gitapichatbot\\bbtachatbotjackapi\\services\\fileprocessorservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{740B52AF-AED3-440C-8B03-7DA53805694A}|BBtaChatbotJackApi\\BBtaChatbotJackApi.csproj|solutionrelative:bbtachatbotjackapi\\services\\fileprocessorservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{740B52AF-AED3-440C-8B03-7DA53805694A}|BBtaChatbotJackApi\\BBtaChatbotJackApi.csproj|c:\\desarrolloapis\\bots\\gitapichatbot\\bbtachatbotjackapi\\controllers\\bancobogotacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{740B52AF-AED3-440C-8B03-7DA53805694A}|BBtaChatbotJackApi\\BBtaChatbotJackApi.csproj|solutionrelative:bbtachatbotjackapi\\controllers\\bancobogotacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{740B52AF-AED3-440C-8B03-7DA53805694A}|BBtaChatbotJackApi\\BBtaChatbotJackApi.csproj|c:\\desarrolloapis\\bots\\gitapichatbot\\bbtachatbotjackapi\\models\\fileinfomodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{740B52AF-AED3-440C-8B03-7DA53805694A}|BBtaChatbotJackApi\\BBtaChatbotJackApi.csproj|solutionrelative:bbtachatbotjackapi\\models\\fileinfomodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{740B52AF-AED3-440C-8B03-7DA53805694A}|BBtaChatbotJackApi\\BBtaChatbotJackApi.csproj|c:\\desarrolloapis\\bots\\gitapichatbot\\bbtachatbotjackapi\\middleware\\apikeymiddleware.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{740B52AF-AED3-440C-8B03-7DA53805694A}|BBtaChatbotJackApi\\BBtaChatbotJackApi.csproj|solutionrelative:bbtachatbotjackapi\\middleware\\apikeymiddleware.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{740B52AF-AED3-440C-8B03-7DA53805694A}|BBtaChatbotJackApi\\BBtaChatbotJackApi.csproj|c:\\desarrolloapis\\bots\\gitapichatbot\\bbtachatbotjackapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{740B52AF-AED3-440C-8B03-7DA53805694A}|BBtaChatbotJackApi\\BBtaChatbotJackApi.csproj|solutionrelative:bbtachatbotjackapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{740B52AF-AED3-440C-8B03-7DA53805694A}|BBtaChatbotJackApi\\BBtaChatbotJackApi.csproj|c:\\desarrolloapis\\bots\\gitapichatbot\\bbtachatbotjackapi\\services\\bancobogotafunciones.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{740B52AF-AED3-440C-8B03-7DA53805694A}|BBtaChatbotJackApi\\BBtaChatbotJackApi.csproj|solutionrelative:bbtachatbotjackapi\\services\\bancobogotafunciones.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{740B52AF-AED3-440C-8B03-7DA53805694A}|BBtaChatbotJackApi\\BBtaChatbotJackApi.csproj|c:\\desarrolloapis\\bots\\gitapichatbot\\bbtachatbotjackapi\\services\\apikeyvalidatorservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{740B52AF-AED3-440C-8B03-7DA53805694A}|BBtaChatbotJackApi\\BBtaChatbotJackApi.csproj|solutionrelative:bbtachatbotjackapi\\services\\apikeyvalidatorservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{740B52AF-AED3-440C-8B03-7DA53805694A}|BBtaChatbotJackApi\\BBtaChatbotJackApi.csproj|c:\\desarrolloapis\\bots\\gitapichatbot\\bbtachatbotjackapi\\services\\embeddingservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{740B52AF-AED3-440C-8B03-7DA53805694A}|BBtaChatbotJackApi\\BBtaChatbotJackApi.csproj|solutionrelative:bbtachatbotjackapi\\services\\embeddingservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{740B52AF-AED3-440C-8B03-7DA53805694A}|BBtaChatbotJackApi\\BBtaChatbotJackApi.csproj|c:\\desarrolloapis\\bots\\gitapichatbot\\bbtachatbotjackapi\\models\\chatsession.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{740B52AF-AED3-440C-8B03-7DA53805694A}|BBtaChatbotJackApi\\BBtaChatbotJackApi.csproj|solutionrelative:bbtachatbotjackapi\\models\\chatsession.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{740B52AF-AED3-440C-8B03-7DA53805694A}|BBtaChatbotJackApi\\BBtaChatbotJackApi.csproj|c:\\desarrolloapis\\bots\\gitapichatbot\\bbtachatbotjackapi\\context\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{740B52AF-AED3-440C-8B03-7DA53805694A}|BBtaChatbotJackApi\\BBtaChatbotJackApi.csproj|solutionrelative:bbtachatbotjackapi\\context\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{740B52AF-AED3-440C-8B03-7DA53805694A}|BBtaChatbotJackApi\\BBtaChatbotJackApi.csproj|c:\\desarrolloapis\\bots\\gitapichatbot\\bbtachatbotjackapi\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{740B52AF-AED3-440C-8B03-7DA53805694A}|BBtaChatbotJackApi\\BBtaChatbotJackApi.csproj|solutionrelative:bbtachatbotjackapi\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{740B52AF-AED3-440C-8B03-7DA53805694A}|BBtaChatbotJackApi\\BBtaChatbotJackApi.csproj|c:\\desarrolloapis\\bots\\gitapichatbot\\bbtachatbotjackapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{740B52AF-AED3-440C-8B03-7DA53805694A}|BBtaChatbotJackApi\\BBtaChatbotJackApi.csproj|solutionrelative:bbtachatbotjackapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{740B52AF-AED3-440C-8B03-7DA53805694A}|BBtaChatbotJackApi\\BBtaChatbotJackApi.csproj|c:\\desarrolloapis\\bots\\gitapichatbot\\bbtachatbotjackapi\\models\\bancobogotamodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{740B52AF-AED3-440C-8B03-7DA53805694A}|BBtaChatbotJackApi\\BBtaChatbotJackApi.csproj|solutionrelative:bbtachatbotjackapi\\models\\bancobogotamodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{740B52AF-AED3-440C-8B03-7DA53805694A}|BBtaChatbotJackApi\\BBtaChatbotJackApi.csproj|c:\\desarrolloapis\\bots\\gitapichatbot\\bbtachatbotjackapi\\models\\pdfdocument.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{740B52AF-AED3-440C-8B03-7DA53805694A}|BBtaChatbotJackApi\\BBtaChatbotJackApi.csproj|solutionrelative:bbtachatbotjackapi\\models\\pdfdocument.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{740B52AF-AED3-440C-8B03-7DA53805694A}|BBtaChatbotJackApi\\BBtaChatbotJackApi.csproj|c:\\desarrolloapis\\bots\\gitapichatbot\\bbtachatbotjackapi\\generales.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{740B52AF-AED3-440C-8B03-7DA53805694A}|BBtaChatbotJackApi\\BBtaChatbotJackApi.csproj|solutionrelative:bbtachatbotjackapi\\generales.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{740B52AF-AED3-440C-8B03-7DA53805694A}|BBtaChatbotJackApi\\BBtaChatbotJackApi.csproj|c:\\desarrolloapis\\bots\\gitapichatbot\\bbtachatbotjackapi\\context\\bancobogotadao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{740B52AF-AED3-440C-8B03-7DA53805694A}|BBtaChatbotJackApi\\BBtaChatbotJackApi.csproj|solutionrelative:bbtachatbotjackapi\\context\\bancobogotadao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{740B52AF-AED3-440C-8B03-7DA53805694A}|BBtaChatbotJackApi\\BBtaChatbotJackApi.csproj|c:\\desarrolloapis\\bots\\gitapichatbot\\bbtachatbotjackapi\\models\\message.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{740B52AF-AED3-440C-8B03-7DA53805694A}|BBtaChatbotJackApi\\BBtaChatbotJackApi.csproj|solutionrelative:bbtachatbotjackapi\\models\\message.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 14,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "appsettings.Development.json",
+              "DocumentMoniker": "C:\\DesarrolloApis\\Bots\\gitApiChatBot\\BBtaChatbotJackApi\\appsettings.Development.json",
+              "RelativeDocumentMoniker": "BBtaChatbotJackApi\\appsettings.Development.json",
+              "ToolTip": "C:\\DesarrolloApis\\Bots\\gitApiChatBot\\BBtaChatbotJackApi\\appsettings.Development.json",
+              "RelativeToolTip": "BBtaChatbotJackApi\\appsettings.Development.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-07-07T20:47:03.796Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\DesarrolloApis\\Bots\\gitApiChatBot\\BBtaChatbotJackApi\\appsettings.json",
+              "RelativeDocumentMoniker": "BBtaChatbotJackApi\\appsettings.json",
+              "ToolTip": "C:\\DesarrolloApis\\Bots\\gitApiChatBot\\BBtaChatbotJackApi\\appsettings.json",
+              "RelativeToolTip": "BBtaChatbotJackApi\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-07-07T20:37:55.014Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "EmbeddingService.cs",
+              "DocumentMoniker": "C:\\DesarrolloApis\\Bots\\gitApiChatBot\\BBtaChatbotJackApi\\Services\\EmbeddingService.cs",
+              "RelativeDocumentMoniker": "BBtaChatbotJackApi\\Services\\EmbeddingService.cs",
+              "ToolTip": "C:\\DesarrolloApis\\Bots\\gitApiChatBot\\BBtaChatbotJackApi\\Services\\EmbeddingService.cs",
+              "RelativeToolTip": "BBtaChatbotJackApi\\Services\\EmbeddingService.cs",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAowAYAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-07T20:37:15.245Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "ApiKeyValidatorService.cs",
+              "DocumentMoniker": "C:\\DesarrolloApis\\Bots\\gitApiChatBot\\BBtaChatbotJackApi\\Services\\ApiKeyValidatorService.cs",
+              "RelativeDocumentMoniker": "BBtaChatbotJackApi\\Services\\ApiKeyValidatorService.cs",
+              "ToolTip": "C:\\DesarrolloApis\\Bots\\gitApiChatBot\\BBtaChatbotJackApi\\Services\\ApiKeyValidatorService.cs",
+              "RelativeToolTip": "BBtaChatbotJackApi\\Services\\ApiKeyValidatorService.cs",
+              "ViewState": "AgIAAAcAAAAAAAAAAAAgwAoAAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-07T20:37:07.346Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "BancoBogotaModel.cs",
+              "DocumentMoniker": "C:\\DesarrolloApis\\Bots\\gitApiChatBot\\BBtaChatbotJackApi\\Models\\BancoBogotaModel.cs",
+              "RelativeDocumentMoniker": "BBtaChatbotJackApi\\Models\\BancoBogotaModel.cs",
+              "ToolTip": "C:\\DesarrolloApis\\Bots\\gitApiChatBot\\BBtaChatbotJackApi\\Models\\BancoBogotaModel.cs",
+              "RelativeToolTip": "BBtaChatbotJackApi\\Models\\BancoBogotaModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAADAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-07T20:36:42.945Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ApiKeyMiddleware.cs",
+              "DocumentMoniker": "C:\\DesarrolloApis\\Bots\\gitApiChatBot\\BBtaChatbotJackApi\\Middleware\\ApiKeyMiddleware.cs",
+              "RelativeDocumentMoniker": "BBtaChatbotJackApi\\Middleware\\ApiKeyMiddleware.cs",
+              "ToolTip": "C:\\DesarrolloApis\\Bots\\gitApiChatBot\\BBtaChatbotJackApi\\Middleware\\ApiKeyMiddleware.cs",
+              "RelativeToolTip": "BBtaChatbotJackApi\\Middleware\\ApiKeyMiddleware.cs",
+              "ViewState": "AgIAABUAAAAAAAAAAAAiwB8AAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-07T20:36:37.667Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "BancoBogotaController.cs",
+              "DocumentMoniker": "C:\\DesarrolloApis\\Bots\\gitApiChatBot\\BBtaChatbotJackApi\\Controllers\\BancoBogotaController.cs",
+              "RelativeDocumentMoniker": "BBtaChatbotJackApi\\Controllers\\BancoBogotaController.cs",
+              "ToolTip": "C:\\DesarrolloApis\\Bots\\gitApiChatBot\\BBtaChatbotJackApi\\Controllers\\BancoBogotaController.cs",
+              "RelativeToolTip": "BBtaChatbotJackApi\\Controllers\\BancoBogotaController.cs",
+              "ViewState": "AgIAAFsAAAAAAAAAAAAswGYAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-07T20:36:16.681Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "PdfDocument.cs",
+              "DocumentMoniker": "C:\\DesarrolloApis\\Bots\\gitApiChatBot\\BBtaChatbotJackApi\\Models\\PdfDocument.cs",
+              "RelativeDocumentMoniker": "BBtaChatbotJackApi\\Models\\PdfDocument.cs",
+              "ToolTip": "C:\\DesarrolloApis\\Bots\\gitApiChatBot\\BBtaChatbotJackApi\\Models\\PdfDocument.cs",
+              "RelativeToolTip": "BBtaChatbotJackApi\\Models\\PdfDocument.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-07T20:34:45.755Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "Message.cs",
+              "DocumentMoniker": "C:\\DesarrolloApis\\Bots\\gitApiChatBot\\BBtaChatbotJackApi\\Models\\Message.cs",
+              "RelativeDocumentMoniker": "BBtaChatbotJackApi\\Models\\Message.cs",
+              "ToolTip": "C:\\DesarrolloApis\\Bots\\gitApiChatBot\\BBtaChatbotJackApi\\Models\\Message.cs",
+              "RelativeToolTip": "BBtaChatbotJackApi\\Models\\Message.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-07T20:34:41.987Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "ChatSession.cs",
+              "DocumentMoniker": "C:\\DesarrolloApis\\Bots\\gitApiChatBot\\BBtaChatbotJackApi\\Models\\ChatSession.cs",
+              "RelativeDocumentMoniker": "BBtaChatbotJackApi\\Models\\ChatSession.cs",
+              "ToolTip": "C:\\DesarrolloApis\\Bots\\gitApiChatBot\\BBtaChatbotJackApi\\Models\\ChatSession.cs",
+              "RelativeToolTip": "BBtaChatbotJackApi\\Models\\ChatSession.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-07T20:34:38.079Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "BancoBogotaDAO.cs",
+              "DocumentMoniker": "C:\\DesarrolloApis\\Bots\\gitApiChatBot\\BBtaChatbotJackApi\\Context\\BancoBogotaDAO.cs",
+              "RelativeDocumentMoniker": "BBtaChatbotJackApi\\Context\\BancoBogotaDAO.cs",
+              "ToolTip": "C:\\DesarrolloApis\\Bots\\gitApiChatBot\\BBtaChatbotJackApi\\Context\\BancoBogotaDAO.cs",
+              "RelativeToolTip": "BBtaChatbotJackApi\\Context\\BancoBogotaDAO.cs",
+              "ViewState": "AgIAACYAAAAAAAAAAAAUwDoAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-07T20:33:32.749Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "BancoBogotaFunciones.cs",
+              "DocumentMoniker": "C:\\DesarrolloApis\\Bots\\gitApiChatBot\\BBtaChatbotJackApi\\Services\\BancoBogotaFunciones.cs",
+              "RelativeDocumentMoniker": "BBtaChatbotJackApi\\Services\\BancoBogotaFunciones.cs",
+              "ToolTip": "C:\\DesarrolloApis\\Bots\\gitApiChatBot\\BBtaChatbotJackApi\\Services\\BancoBogotaFunciones.cs",
+              "RelativeToolTip": "BBtaChatbotJackApi\\Services\\BancoBogotaFunciones.cs",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAUwBYAAAB7AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-07T20:32:30.264Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "FileInfoModel.cs",
+              "DocumentMoniker": "C:\\DesarrolloApis\\Bots\\gitApiChatBot\\BBtaChatbotJackApi\\Models\\FileInfoModel.cs",
+              "RelativeDocumentMoniker": "BBtaChatbotJackApi\\Models\\FileInfoModel.cs",
+              "ToolTip": "C:\\DesarrolloApis\\Bots\\gitApiChatBot\\BBtaChatbotJackApi\\Models\\FileInfoModel.cs",
+              "RelativeToolTip": "BBtaChatbotJackApi\\Models\\FileInfoModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-07T20:29:39.258Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "FileProcessorService.cs",
+              "DocumentMoniker": "C:\\DesarrolloApis\\Bots\\gitApiChatBot\\BBtaChatbotJackApi\\Services\\FileProcessorService.cs",
+              "RelativeDocumentMoniker": "BBtaChatbotJackApi\\Services\\FileProcessorService.cs",
+              "ToolTip": "C:\\DesarrolloApis\\Bots\\gitApiChatBot\\BBtaChatbotJackApi\\Services\\FileProcessorService.cs",
+              "RelativeToolTip": "BBtaChatbotJackApi\\Services\\FileProcessorService.cs",
+              "ViewState": "AgIAACwBAAAAAAAAAAAiwEABAAAUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-07T19:38:30.366Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "AppDbContext.cs",
+              "DocumentMoniker": "C:\\DesarrolloApis\\Bots\\gitApiChatBot\\BBtaChatbotJackApi\\Context\\AppDbContext.cs",
+              "RelativeDocumentMoniker": "BBtaChatbotJackApi\\Context\\AppDbContext.cs",
+              "ToolTip": "C:\\DesarrolloApis\\Bots\\gitApiChatBot\\BBtaChatbotJackApi\\Context\\AppDbContext.cs",
+              "RelativeToolTip": "BBtaChatbotJackApi\\Context\\AppDbContext.cs",
+              "ViewState": "AgIAAAoAAAAAAAAAAAAgwBMAAAAqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-07T19:37:08.492Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "Generales.cs",
+              "DocumentMoniker": "C:\\DesarrolloApis\\Bots\\gitApiChatBot\\BBtaChatbotJackApi\\Generales.cs",
+              "RelativeDocumentMoniker": "BBtaChatbotJackApi\\Generales.cs",
+              "ToolTip": "C:\\DesarrolloApis\\Bots\\gitApiChatBot\\BBtaChatbotJackApi\\Generales.cs",
+              "RelativeToolTip": "BBtaChatbotJackApi\\Generales.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-07T19:26:36.611Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\DesarrolloApis\\Bots\\gitApiChatBot\\BBtaChatbotJackApi\\Program.cs",
+              "RelativeDocumentMoniker": "BBtaChatbotJackApi\\Program.cs",
+              "ToolTip": "C:\\DesarrolloApis\\Bots\\gitApiChatBot\\BBtaChatbotJackApi\\Program.cs",
+              "RelativeToolTip": "BBtaChatbotJackApi\\Program.cs",
+              "ViewState": "AgIAACcAAAAAAAAAAAAiwCEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-07T19:25:26.687Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -12,7 +12,7 @@ namespace BBtaChatbotJackApi.Controllers
     {
         private readonly BancoBogotaFunciones _chatbotFunctions;
         private readonly AppDbContext _context; // Add this line
-private readonly FileProcessorService _fileProcessorService;
+        private readonly FileProcessorService _fileProcessorService;
 
         public BancoBogotaController(BancoBogotaFunciones chatbotFunctions, AppDbContext context, FileProcessorService fileProcessorService) // Modify constructor
         {
@@ -57,7 +57,7 @@ private readonly FileProcessorService _fileProcessorService;
             var chatSessionId = await GetOrCreateChatSessionId(request.SessionId); // Modify to await
 
             // Retrieve file information from the database
-            var fileInfo = await _context.FileInfos.FindAsync(request.FileId);
+            var fileInfo = await _context.FileInform.FindAsync(request.FileId);
             if (fileInfo == null)
             {
                 return NotFound(new { error = "File not found." });
@@ -117,5 +117,5 @@ private readonly FileProcessorService _fileProcessorService;
         }
     }
 
-      
+
 }

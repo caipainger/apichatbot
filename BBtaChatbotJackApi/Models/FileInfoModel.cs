@@ -7,6 +7,7 @@ namespace BBtaChatbotJackApi.Models
     {
         public int Id { get; set; }
         public string FileName { get; set; } // Store the name of the original file
+        public string FilePath { get; set; } // Store the name of the original file
         public string OriginalFilePath { get; set; } // Optional: if you want to save the path of the original file
         public string TextChunk { get; set; } // Store the text chunk
         [Column(TypeName = "json")]

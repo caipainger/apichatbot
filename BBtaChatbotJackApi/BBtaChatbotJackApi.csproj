@@ -9,6 +9,7 @@
   <ItemGroup>
     <PackageReference Include="Betalgo.Ranul.OpenAI" Version="9.0.4" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="NPOI" Version="2.7.4" />
     <PackageReference Include="PdfPig" Version="0.1.8" />
     <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="8.0.0" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="9.0.1" />
