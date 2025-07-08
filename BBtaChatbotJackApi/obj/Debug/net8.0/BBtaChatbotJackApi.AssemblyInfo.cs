@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("BBtaChatbotJackApi")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8dae614e8cb235d8aa256553a7ff11ea45ce6d8c")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+82e45504d1d8746886268b31f8180c666f61873d")]
 [assembly: System.Reflection.AssemblyProductAttribute("BBtaChatbotJackApi")]
 [assembly: System.Reflection.AssemblyTitleAttribute("BBtaChatbotJackApi")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

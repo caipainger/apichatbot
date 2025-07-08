@@ -1,3 +1,5 @@
+using BBtaChatbotJackApi.Models;
+using Microsoft.EntityFrameworkCore;
 using UglyToad.PdfPig;
 
 namespace BBtaChatbotJackApi.Context
@@ -11,10 +13,10 @@ namespace BBtaChatbotJackApi.Context
             _context = context;
         }
 
-       
+
         public string ReadPdf(string filePath)
         {
-            if (!System.IO.File.Exists(filePath))
+            if (!File.Exists(filePath))
             {
                 return "Error: File not found.";
             }
@@ -45,13 +47,13 @@ namespace BBtaChatbotJackApi.Context
                 return $"Error reading PDF: {ex.Message}";
             }
         }
-        public async Task<List<BBtaChatbotJackApi.Models.FileInfoModel>> SearchRelevantFileChunksAsync(float[] queryEmbedding)
-{
-    var relevantChunks = await _context.FileInfos
-        .Take(5) // Take top N relevant chunks
-        .ToListAsync(); // You'll need to order by similarity before taking
+        public async Task<List<FileInfoModel>> SearchRelevantFileChunksAsync(float[] queryEmbedding)
+        {
+            var relevantChunks = await _context.FileInform
+                .Take(5) // Take top N relevant chunks
+                .ToListAsync(); // You'll need to order by similarity before taking
 
-    return relevantChunks;
-}
+            return relevantChunks;
+        }
     }
 }
