@@ -27,13 +27,12 @@ namespace BBtaChatbotJackApi.Services
         NamedEntityRecognitionService nerService, // Añadir este parámetro
         IntentDetectionService intentService     // Añadir este parámetro
         )
-    {
-        _context = context;
-        _configuration = configuration;
-        _embeddingService = embeddingService;
-        _nerService = nerService;             // Inicializar campo
-        _intentService = intentService;       // Inicializar campo
-    }  _embeddingService = embeddingService;
+        {
+            _context = context;
+            _configuration = configuration;
+            _embeddingService = embeddingService;
+            _nerService = nerService;             // Inicializar campo
+            _intentService = intentService;       // Inicializar campo
         }
 
         public async Task<List<string>> ProcessUploadFolderAsync()
@@ -113,6 +112,7 @@ namespace BBtaChatbotJackApi.Services
             // Simple text chunking (split by paragraphs or a fixed size)
             // This is a basic example; you might need a more sophisticated chunking strategy
             var textChunks = SplitTextIntoChunks(text, 1000); // Example: Split into chunks of ~1000 characters
+            var chunkIndex = 0;
 
             if (textChunks.Count == 0)
             {
@@ -132,24 +132,24 @@ namespace BBtaChatbotJackApi.Services
                     var fileInfoChunk = new Models.FileInfoModel // Use Models.FileInfo to avoid ambiguity
                     {
                         FileName = Path.GetFileName(filePath),
-                        FilePath = filePath, 
+                        FilePath = filePath,
                         OriginalFilePath = filePath,
                         TextChunk = chunk,
                         Embedding = embedding,
                         UploadDate = DateTime.UtcNow,
                         FileType = extension
                     };
-                     var identifiedEntities = await _nerService.IdentifyEntitiesAsync(chunk);
-    var detectedIntent = await _intentService.DetectIntentAsync(chunk);
+                    var identifiedEntities = await _nerService.IdentifyEntitiesAsync(chunk);
+                    var detectedIntent = await _intentService.DetectIntentAsync(chunk);
 
-    // TODO: Añadir using statement para la librería de serialización JSON si aún no está presente
-    // Ejemplo: using Newtonsoft.Json;
+                    // TODO: Añadir using statement para la librería de serialización JSON si aún no está presente
+                    // Ejemplo: using Newtonsoft.Json;
 
-    // Serializar los resultados a string JSON
-    var embeddingJson = Newtonsoft.Json.JsonConvert.SerializeObject(embedding);
-    var entitiesJson = Newtonsoft.Json.JsonConvert.SerializeObject(identifiedEntities);
-    var intentJson = Newtonsoft.Json.JsonConvert.SerializeObject(detectedIntent); // O solo detectedIntent si ya es string
-                    var documentChunk = new Models.DocumentChunk
+                    // Serializar los resultados a string JSON
+                    var embeddingJson = Newtonsoft.Json.JsonConvert.SerializeObject(embedding);
+                    var entitiesJson = Newtonsoft.Json.JsonConvert.SerializeObject(identifiedEntities);
+                    var intentJson = Newtonsoft.Json.JsonConvert.SerializeObject(detectedIntent); // O solo detectedIntent si ya es string
+                    var documentChunk = new DocumentChunk
                     {
                         OriginalFilePath = filePath,
                         // Puedes añadir ChunkIndex si decides implementarlo en SplitTextIntoChunks
@@ -165,7 +165,7 @@ namespace BBtaChatbotJackApi.Services
                     _context.DocumentChunks.Add(documentChunk);
                     fileProcessingResults.Add($"Processed chunk from {Path.GetFileName(filePath)}");
                     fileProcessingResults.Add($"Processed chunk {documentChunk.ChunkIndex} from {Path.GetFileName(filePath)}"); // Actualizar mensaje
-                    chunkIndex++; 
+                    chunkIndex++;
                 }
 
                 // Save all chunk info for this file to the database

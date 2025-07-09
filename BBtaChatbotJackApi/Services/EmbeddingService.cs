@@ -1,8 +1,5 @@
-using System.Threading.Tasks;
-using System.Collections.Generic;
+
  using AllMiniLmL6V2Sharp;
-using Tensorflow; // Add this using statement
-using static Tensorflow.Binding; // Add this using statement
 
 namespace BBtaChatbotJackApi.Services
 {
@@ -30,10 +27,10 @@ namespace BBtaChatbotJackApi.Services
             _session.run(tf.global_variables_initializer());
         }
 
-        public async Task<float[]> GenerateEmbeddingAsync(string text)
-        {
-            return await Task.FromResult(new float[768]); // Placeholder embedding using a common BERT embedding size
-        }
+        //public async Task<float[]> GenerateEmbeddingAsync(string text)
+        //{
+        //    return await Task.FromResult(new float[768]); // Placeholder embedding using a common BERT embedding size
+        //}
 
         // public async Task<List<float[]>> GenerateEmbeddingsAsync(List<string> texts)
         // {
