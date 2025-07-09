@@ -1,2 +1,6 @@
 BBtaChatbotJackApi/model/*.onnx filter=lfs diff=lfs merge=lfs -text
 BBtaChatbotJackApi/model/BertModel/*.onnx filter=lfs diff=lfs merge=lfs -text
+BBtaChatbotJackApi/model/BertModel/*.json filter=lfs diff=lfs merge=lfs -text
+BBtaChatbotJackApi/model/*.json filter=lfs diff=lfs merge=lfs -text
+BBtaChatbotJackApi/model/*.txt filter=lfs diff=lfs merge=lfs -text
+BBtaChatbotJackApi/model/BertModel/*.txt filter=lfs diff=lfs merge=lfs -text
