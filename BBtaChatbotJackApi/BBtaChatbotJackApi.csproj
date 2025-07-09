@@ -12,6 +12,8 @@
     <PackageReference Include="NPOI" Version="2.7.4" />
     <PackageReference Include="PdfPig" Version="0.1.8" />
     <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="8.0.0" />
+    <PackageReference Include="AllMiniLmL6V2Sharp" Version="1.0.0" />
+    <PackageReference Include="SciSharp.TensorFlow.NET" Version="0.70.4" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="9.0.1" />
   </ItemGroup>
 
