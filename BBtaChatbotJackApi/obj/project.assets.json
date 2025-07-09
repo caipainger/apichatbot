@@ -2,6 +2,7 @@
   "version": 3,
   "targets": {
     "net8.0": {
+<<<<<<< HEAD
       "AllMiniLmL6V2Sharp/0.0.3": {
         "type": "package",
         "dependencies": {
@@ -17,6 +18,8 @@
           "lib/netstandard2.1/AllMiniLmL6V2Sharp.dll": {}
         }
       },
+=======
+>>>>>>> b2fb8b33c7ea4efb29b679e9009ce2bb8be5a236
       "Betalgo.Ranul.OpenAI/9.0.4": {
         "type": "package",
         "dependencies": {
@@ -77,6 +80,7 @@
           }
         }
       },
+<<<<<<< HEAD
       "libtorch-cpu-win-x64/2.1.0.1": {
         "type": "package",
         "build": {
@@ -130,6 +134,8 @@
           }
         }
       },
+=======
+>>>>>>> b2fb8b33c7ea4efb29b679e9009ce2bb8be5a236
       "MathNet.Numerics.Signed/5.0.0": {
         "type": "package",
         "compile": {
@@ -553,6 +559,7 @@
           }
         }
       },
+<<<<<<< HEAD
       "Microsoft.ML/3.0.0": {
         "type": "package",
         "dependencies": {
@@ -901,6 +908,8 @@
           "build/netstandard2.0/_._": {}
         }
       },
+=======
+>>>>>>> b2fb8b33c7ea4efb29b679e9009ce2bb8be5a236
       "Microsoft.NETCore.Platforms/5.0.0": {
         "type": "package",
         "compile": {
@@ -910,6 +919,7 @@
           "lib/netstandard1.0/_._": {}
         }
       },
+<<<<<<< HEAD
       "Microsoft.NETCore.Targets/1.1.0": {
         "type": "package",
         "compile": {
@@ -919,6 +929,8 @@
           "lib/netstandard1.0/_._": {}
         }
       },
+=======
+>>>>>>> b2fb8b33c7ea4efb29b679e9009ce2bb8be5a236
       "Microsoft.OpenApi/1.6.23": {
         "type": "package",
         "compile": {
@@ -1070,6 +1082,7 @@
           }
         }
       },
+<<<<<<< HEAD
       "SciSharp.TensorFlow.Redist-OSX/2.15.0": {
         "type": "package",
         "runtimeTargets": {
@@ -1083,6 +1096,8 @@
           }
         }
       },
+=======
+>>>>>>> b2fb8b33c7ea4efb29b679e9009ce2bb8be5a236
       "SharpZipLib/1.4.2": {
         "type": "package",
         "compile": {
@@ -1192,6 +1207,7 @@
           "Microsoft.AspNetCore.App"
         ]
       },
+<<<<<<< HEAD
       "System.CodeDom/4.5.0": {
         "type": "package",
         "compile": {
@@ -1216,6 +1232,8 @@
           }
         }
       },
+=======
+>>>>>>> b2fb8b33c7ea4efb29b679e9009ce2bb8be5a236
       "System.ComponentModel.Annotations/5.0.0": {
         "type": "package",
         "compile": {
@@ -1229,6 +1247,7 @@
           }
         }
       },
+<<<<<<< HEAD
       "System.IO/4.3.0": {
         "type": "package",
         "dependencies": {
@@ -1342,6 +1361,8 @@
           }
         }
       },
+=======
+>>>>>>> b2fb8b33c7ea4efb29b679e9009ce2bb8be5a236
       "System.Runtime.CompilerServices.Unsafe/5.0.0": {
         "type": "package",
         "compile": {
@@ -1396,6 +1417,7 @@
           "buildTransitive/net6.0/_._": {}
         }
       },
+<<<<<<< HEAD
       "System.Text.Encoding/4.3.0": {
         "type": "package",
         "dependencies": {
@@ -1409,6 +1431,8 @@
           }
         }
       },
+=======
+>>>>>>> b2fb8b33c7ea4efb29b679e9009ce2bb8be5a236
       "System.Text.Encoding.CodePages/5.0.0": {
         "type": "package",
         "dependencies": {
@@ -1447,6 +1471,7 @@
           "buildTransitive/net6.0/System.Text.Json.targets": {}
         }
       },
+<<<<<<< HEAD
       "System.Threading.Channels/4.7.1": {
         "type": "package",
         "compile": {
@@ -1473,6 +1498,8 @@
           }
         }
       },
+=======
+>>>>>>> b2fb8b33c7ea4efb29b679e9009ce2bb8be5a236
       "ZString/2.6.0": {
         "type": "package",
         "compile": {
@@ -1489,6 +1516,7 @@
     }
   },
   "libraries": {
+<<<<<<< HEAD
     "AllMiniLmL6V2Sharp/0.0.3": {
       "sha512": "ufFeCThwzc4jdcBMRLEkCYZr6LHFe1W3kXqxsxuz2BWc80Cq/J1Oq/VQdLd6IHvSxrXo22tjNsGZAdpPJ+kE2Q==",
       "type": "package",
@@ -1503,6 +1531,8 @@
         "lib/netstandard2.1/AllMiniLmL6V2Sharp.dll"
       ]
     },
+=======
+>>>>>>> b2fb8b33c7ea4efb29b679e9009ce2bb8be5a236
     "Betalgo.Ranul.OpenAI/9.0.4": {
       "sha512": "2WxSy4DK7eFxGhwb8BMhuUmE21VVC5ggupru4v/XmRjhyLV20fH+PpQdCuwVZWskI0EftjDGgJ0mGLgryO27OA==",
       "type": "package",
@@ -1602,6 +1632,7 @@
         "lib/netstandard2.1/ExtendedNumerics.BigDecimal.xml"
       ]
     },
+<<<<<<< HEAD
     "libtorch-cpu-win-x64/2.1.0.1": {
       "sha512": "zh9Ll+DefpXfMzaaEzHgtY3Q9iDi6NHTnETI0Jah5jGiPrzphTidsVxLC+njAeeThhFGRakx4CMwPqJFMvfw7A==",
       "type": "package",
@@ -1628,6 +1659,8 @@
         "runtimes/win-x64/native/uv.dll"
       ]
     },
+=======
+>>>>>>> b2fb8b33c7ea4efb29b679e9009ce2bb8be5a236
     "MathNet.Numerics.Signed/5.0.0": {
       "sha512": "PSrHBVMf41SjbhlnpOMnoir8YgkyEJ6/nwxvjYpH+vJCexNcx2ms6zRww5yLVqLet1xLJgZ39swtKRTLhWdnAw==",
       "type": "package",
@@ -2357,6 +2390,7 @@
         "microsoft.io.recyclablememorystream.nuspec"
       ]
     },
+<<<<<<< HEAD
     "Microsoft.ML/3.0.0": {
       "sha512": "r3G3ak3BFvu9B/sH2pX0fuFcPT1vTVMF0t595vjRwg7ZcxYQ0YG8zT8f8bGxyXAk16764GWHwOxuALDdFWjMEQ==",
       "type": "package",
@@ -2555,6 +2589,8 @@
         "microsoft.ml.onnxruntime.managed.nuspec"
       ]
     },
+=======
+>>>>>>> b2fb8b33c7ea4efb29b679e9009ce2bb8be5a236
     "Microsoft.NETCore.Platforms/5.0.0": {
       "sha512": "VyPlqzH2wavqquTcYpkIIAQ6WdenuKoFN0BdYBbCWsclXacSOHNQn66Gt4z5NBqEYW0FAPm5rlvki9ZiCij5xQ==",
       "type": "package",
@@ -2573,6 +2609,7 @@
         "version.txt"
       ]
     },
+<<<<<<< HEAD
     "Microsoft.NETCore.Targets/1.1.0": {
       "sha512": "aOZA3BWfz9RXjpzt0sRJJMjAscAUm3Hoa4UWAfceV9UTYxgwZ1lZt5nO2myFf+/jetYQo4uTP7zS8sJY67BBxg==",
       "type": "package",
@@ -2588,6 +2625,8 @@
         "runtime.json"
       ]
     },
+=======
+>>>>>>> b2fb8b33c7ea4efb29b679e9009ce2bb8be5a236
     "Microsoft.OpenApi/1.6.23": {
       "sha512": "tZ1I0KXnn98CWuV8cpI247A17jaY+ILS9vvF7yhI0uPPEqF4P1d7BWL5Uwtel10w9NucllHB3nTkfYTAcHAh8g==",
       "type": "package",
@@ -2922,6 +2961,7 @@
         "pomelo.entityframeworkcore.mysql.nuspec"
       ]
     },
+<<<<<<< HEAD
     "SciSharp.TensorFlow.Redist-OSX/2.15.0": {
       "sha512": "uzEXkb+0RRPmKkEQpNnhHtKgDva0xnbZyuJnmd3sDAdtnRt3Qf+awoC/Un6SNl0BVPiaXbnr0G5w6rUJsNPohg==",
       "type": "package",
@@ -2938,6 +2978,8 @@
         "scisharp.tensorflow.redist-osx.nuspec"
       ]
     },
+=======
+>>>>>>> b2fb8b33c7ea4efb29b679e9009ce2bb8be5a236
     "SharpZipLib/1.4.2": {
       "sha512": "yjj+3zgz8zgXpiiC3ZdF/iyTBbz2fFvMxZFEBPUcwZjIvXOf37Ylm+K58hqMfIBt5JgU/Z2uoUS67JmTLe973A==",
       "type": "package",
@@ -3067,6 +3109,7 @@
         "swashbuckle.aspnetcore.swaggerui.nuspec"
       ]
     },
+<<<<<<< HEAD
     "System.CodeDom/4.5.0": {
       "sha512": "gqpR1EeXOuzNQWL7rOzmtdIz3CaXVjSQCiaGOs2ivjPwynKSJYm39X81fdlp7WuojZs/Z5t1k5ni7HtKQurhjw==",
       "type": "package",
@@ -3111,6 +3154,8 @@
         "version.txt"
       ]
     },
+=======
+>>>>>>> b2fb8b33c7ea4efb29b679e9009ce2bb8be5a236
     "System.ComponentModel.Annotations/5.0.0": {
       "sha512": "dMkqfy2el8A8/I76n2Hi1oBFEbG1SfxD2l5nhwXV3XjlnOmwxJlQbYpJH4W51odnU9sARCSAgv7S3CyAFMkpYg==",
       "type": "package",
@@ -3201,6 +3246,7 @@
         "version.txt"
       ]
     },
+<<<<<<< HEAD
     "System.IO/4.3.0": {
       "sha512": "3qjaHvxQPDpSOYICjUoTsmoq5u6QJAFRUITgeT/4gqkF1bajbSmb1kwSxEA8AHlofqgcKJcM8udgieRNhaJ5Cg==",
       "type": "package",
@@ -3655,6 +3701,8 @@
         "system.runtime.nuspec"
       ]
     },
+=======
+>>>>>>> b2fb8b33c7ea4efb29b679e9009ce2bb8be5a236
     "System.Runtime.CompilerServices.Unsafe/5.0.0": {
       "sha512": "ZD9TMpsmYJLrxbbmdvhwt9YEgG5WntEnZ/d1eH8JBX9LBp+Ju8BSBhUGbZMNVHHomWo2KVImJhTDl2hIgw/6MA==",
       "type": "package",
@@ -3753,6 +3801,7 @@
         "useSharedDesignerContext.txt"
       ]
     },
+<<<<<<< HEAD
     "System.Text.Encoding/4.3.0": {
       "sha512": "BiIg+KWaSDOITze6jGQynxg64naAPtqGHBwDrLaCtixsa5bKiR8dpPOHA7ge3C0JJQizJE+sfkz1wV+BAKAYZw==",
       "type": "package",
@@ -3821,6 +3870,8 @@
         "system.text.encoding.nuspec"
       ]
     },
+=======
+>>>>>>> b2fb8b33c7ea4efb29b679e9009ce2bb8be5a236
     "System.Text.Encoding.CodePages/5.0.0": {
       "sha512": "NyscU59xX6Uo91qvhOs2Ccho3AR2TnZPomo1Z0K6YpyztBPM/A5VbkzOO19sy3A3i1TtEnTxA7bCe3Us+r5MWg==",
       "type": "package",
@@ -3935,6 +3986,7 @@
         "useSharedDesignerContext.txt"
       ]
     },
+<<<<<<< HEAD
     "System.Threading.Channels/4.7.1": {
       "sha512": "6akRtHK/wab3246t4p5v3HQrtQk8LboOt5T4dtpNgsp3zvDeM4/Gx8V12t0h+c/W9/enUrilk8n6EQqdQorZAA==",
       "type": "package",
@@ -4027,6 +4079,8 @@
         "system.threading.tasks.nuspec"
       ]
     },
+=======
+>>>>>>> b2fb8b33c7ea4efb29b679e9009ce2bb8be5a236
     "ZString/2.6.0": {
       "sha512": "XE8a+11nZg0LRaf+RGABEWaHIf8yGd5w8v/Ra1iWxMBmAVzwuKbW7G21mS0U7w7sh1lYcgckInWGgnz4qyET8A==",
       "type": "package",
@@ -4050,13 +4104,19 @@
   },
   "projectFileDependencyGroups": {
     "net8.0": [
+<<<<<<< HEAD
       "AllMiniLmL6V2Sharp >= 0.0.3",
+=======
+>>>>>>> b2fb8b33c7ea4efb29b679e9009ce2bb8be5a236
       "Betalgo.Ranul.OpenAI >= 9.0.4",
       "NPOI >= 2.7.4",
       "Newtonsoft.Json >= 13.0.3",
       "PdfPig >= 0.1.8",
       "Pomelo.EntityFrameworkCore.MySql >= 8.0.0",
+<<<<<<< HEAD
       "SciSharp.TensorFlow.Redist-OSX >= 2.15.0",
+=======
+>>>>>>> b2fb8b33c7ea4efb29b679e9009ce2bb8be5a236
       "Swashbuckle.AspNetCore >= 9.0.1"
     ]
   },
@@ -4116,10 +4176,13 @@
       "net8.0": {
         "targetAlias": "net8.0",
         "dependencies": {
+<<<<<<< HEAD
           "AllMiniLmL6V2Sharp": {
             "target": "Package",
             "version": "[0.0.3, )"
           },
+=======
+>>>>>>> b2fb8b33c7ea4efb29b679e9009ce2bb8be5a236
           "Betalgo.Ranul.OpenAI": {
             "target": "Package",
             "version": "[9.0.4, )"
@@ -4140,10 +4203,13 @@
             "target": "Package",
             "version": "[8.0.0, )"
           },
+<<<<<<< HEAD
           "SciSharp.TensorFlow.Redist-OSX": {
             "target": "Package",
             "version": "[2.15.0, )"
           },
+=======
+>>>>>>> b2fb8b33c7ea4efb29b679e9009ce2bb8be5a236
           "Swashbuckle.AspNetCore": {
             "target": "Package",
             "version": "[9.0.1, )"

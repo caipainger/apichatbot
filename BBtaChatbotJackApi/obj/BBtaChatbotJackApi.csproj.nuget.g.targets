@@ -6,6 +6,9 @@
     <Import Project="$(NuGetPackageRoot)microsoft.extensions.logging.abstractions\8.0.2\buildTransitive\net6.0\Microsoft.Extensions.Logging.Abstractions.targets" Condition="Exists('$(NuGetPackageRoot)microsoft.extensions.logging.abstractions\8.0.2\buildTransitive\net6.0\Microsoft.Extensions.Logging.Abstractions.targets')" />
     <Import Project="$(NuGetPackageRoot)microsoft.extensions.options\8.0.2\buildTransitive\net6.0\Microsoft.Extensions.Options.targets" Condition="Exists('$(NuGetPackageRoot)microsoft.extensions.options\8.0.2\buildTransitive\net6.0\Microsoft.Extensions.Options.targets')" />
     <Import Project="$(NuGetPackageRoot)microsoft.extensions.configuration.binder\8.0.0\buildTransitive\netstandard2.0\Microsoft.Extensions.Configuration.Binder.targets" Condition="Exists('$(NuGetPackageRoot)microsoft.extensions.configuration.binder\8.0.0\buildTransitive\netstandard2.0\Microsoft.Extensions.Configuration.Binder.targets')" />
+<<<<<<< HEAD
     <Import Project="$(NuGetPackageRoot)libtorch-cpu-win-x64\2.1.0.1\buildTransitive\netstandard2.0\libtorch-cpu-win-x64.targets" Condition="Exists('$(NuGetPackageRoot)libtorch-cpu-win-x64\2.1.0.1\buildTransitive\netstandard2.0\libtorch-cpu-win-x64.targets')" />
+=======
+>>>>>>> b2fb8b33c7ea4efb29b679e9009ce2bb8be5a236
   </ImportGroup>
 </Project>

@@ -55,10 +55,13 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+<<<<<<< HEAD
             "AllMiniLmL6V2Sharp": {
               "target": "Package",
               "version": "[0.0.3, )"
             },
+=======
+>>>>>>> b2fb8b33c7ea4efb29b679e9009ce2bb8be5a236
             "Betalgo.Ranul.OpenAI": {
               "target": "Package",
               "version": "[9.0.4, )"
@@ -79,10 +82,13 @@
               "target": "Package",
               "version": "[8.0.0, )"
             },
+<<<<<<< HEAD
             "SciSharp.TensorFlow.Redist-OSX": {
               "target": "Package",
               "version": "[2.15.0, )"
             },
+=======
+>>>>>>> b2fb8b33c7ea4efb29b679e9009ce2bb8be5a236
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[9.0.1, )"
