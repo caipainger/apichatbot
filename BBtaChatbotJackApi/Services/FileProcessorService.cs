@@ -7,6 +7,7 @@ using System.Text; // Para usar StringBuildercsharp
 using BBtaChatbotJackApi.Context; // Ajusta el namespace si es diferente
 using BBtaChatbotJackApi.Models; // Ajusta el namespace si es diferente
 using Microsoft.EntityFrameworkCore; // Necesario para DbContext
+using BBtaChatbotJackApi.Services;
 
 
 namespace BBtaChatbotJackApi.Services
@@ -16,12 +17,23 @@ namespace BBtaChatbotJackApi.Services
         private readonly AppDbContext _context;
         private readonly IConfiguration _configuration;
         private readonly EmbeddingService _embeddingService;
+        private readonly NamedEntityRecognitionService _nerService; // Añadir este
+        private readonly IntentDetectionService _intentService;   // Añadir este
 
-        public FileProcessorService(AppDbContext context, IConfiguration configuration, EmbeddingService embeddingService)
-        {
-            _context = context;
-            _configuration = configuration;
-            _embeddingService = embeddingService;
+        public FileProcessorService(
+        AppDbContext context,
+        IConfiguration configuration,
+        EmbeddingService embeddingService,
+        NamedEntityRecognitionService nerService, // Añadir este parámetro
+        IntentDetectionService intentService     // Añadir este parámetro
+        )
+    {
+        _context = context;
+        _configuration = configuration;
+        _embeddingService = embeddingService;
+        _nerService = nerService;             // Inicializar campo
+        _intentService = intentService;       // Inicializar campo
+    }  _embeddingService = embeddingService;
         }
 
         public async Task<List<string>> ProcessUploadFolderAsync()
@@ -127,10 +139,33 @@ namespace BBtaChatbotJackApi.Services
                         UploadDate = DateTime.UtcNow,
                         FileType = extension
                     };
+                     var identifiedEntities = await _nerService.IdentifyEntitiesAsync(chunk);
+    var detectedIntent = await _intentService.DetectIntentAsync(chunk);
 
+    // TODO: Añadir using statement para la librería de serialización JSON si aún no está presente
+    // Ejemplo: using Newtonsoft.Json;
+
+    // Serializar los resultados a string JSON
+    var embeddingJson = Newtonsoft.Json.JsonConvert.SerializeObject(embedding);
+    var entitiesJson = Newtonsoft.Json.JsonConvert.SerializeObject(identifiedEntities);
+    var intentJson = Newtonsoft.Json.JsonConvert.SerializeObject(detectedIntent); // O solo detectedIntent si ya es string
+                    var documentChunk = new Models.DocumentChunk
+                    {
+                        OriginalFilePath = filePath,
+                        // Puedes añadir ChunkIndex si decides implementarlo en SplitTextIntoChunks
+                        ChunkIndex = textChunks.IndexOf(chunk), // Ejemplo simple de ChunkIndex
+                        Content = chunk,
+                        EmbeddingVector = embeddingJson, // Guardar el embedding serializado
+                        IdentifiedEntities = entitiesJson, // Placeholder por ahora
+                        IdentifiedIntents = intentJson, // Placeholder por ahora
+                        ProcessedTimestamp = DateTime.UtcNow
+                    };
                     // Add the chunk info to the database context
                     _context.FileInform.Add(fileInfoChunk);
+                    _context.DocumentChunks.Add(documentChunk);
                     fileProcessingResults.Add($"Processed chunk from {Path.GetFileName(filePath)}");
+                    fileProcessingResults.Add($"Processed chunk {documentChunk.ChunkIndex} from {Path.GetFileName(filePath)}"); // Actualizar mensaje
+                    chunkIndex++; 
                 }
 
                 // Save all chunk info for this file to the database
